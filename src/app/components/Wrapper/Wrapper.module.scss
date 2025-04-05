@@ -3,6 +3,7 @@
 @use "../../styles/placeholders";
 
 .wrapperStyling {
+  @include m.flexBox(column, center, center, 0rem);
   margin: 0rem 1rem;
   .headerStyling {
     width: 100%;

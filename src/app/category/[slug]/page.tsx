@@ -8,7 +8,6 @@ export default async function CategoryPage({
 }: {
   params: { slug: string };
 }) {
-  console.log(params?.slug);
   const products = await getCategoryProducts(params?.slug);
   console.log(products);
 

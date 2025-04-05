@@ -1,0 +1,14 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.listingStyling {
+  @include m.flexBox(column, center, center, 0.5rem);
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+
+  li {
+    list-style-type: none;
+  }
+}

@@ -1,3 +1,5 @@
+"use client";
+import { useRouter } from "next/navigation";
 import s from "./FeaturedCard.module.scss";
 
 interface FeaturedCardInterface {
@@ -11,11 +13,26 @@ export const FeaturedCard = ({
   topHeader,
   productListing,
 }: FeaturedCardInterface) => {
+  const router = useRouter();
+
+  const handleCategoryClick = (categorySlug: string) => {
+    router.push(`/category/${categorySlug}`);
+  };
+
+  const handleProductClick = (productSlug: string) => {
+    router.push(`/product/${productSlug}`);
+  };
+
   return (
     <>
       {data?.map((item: Product | Category) => {
         return (
           <figure
+            onClick={() =>
+              topHeader
+                ? handleCategoryClick(item?.slug)
+                : handleProductClick(item?.slug)
+            }
             className={`${s.cardStyling} ${
               productListing ? s.borderStyling : ""
             }`}

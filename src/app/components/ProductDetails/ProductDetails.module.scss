@@ -1,0 +1,16 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.detailsStyling {
+  @include m.flexBox(column, center, flex-start, 0.5rem);
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    h3 {
+      margin-top: 0.5rem;
+    }
+  }
+}

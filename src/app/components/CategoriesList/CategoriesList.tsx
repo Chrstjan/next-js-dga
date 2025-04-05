@@ -34,7 +34,7 @@ export const CategoriesList = () => {
   };
 
   return (
-    <ul>
+    <ul className={s.listingStyling}>
       {categories?.length > 0 ? (
         categories?.map((item: Category) => {
           return (
