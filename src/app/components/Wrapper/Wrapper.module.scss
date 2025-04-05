@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.wrapperStyling {
+  margin: 0rem 1rem;
+  .headerStyling {
+    width: 100%;
+    border-top: 5px solid $green;
+  }
+}

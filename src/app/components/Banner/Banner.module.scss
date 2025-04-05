@@ -1,0 +1,24 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.bannerStyling {
+  @include m.flexBox(column, center, center, 0.5rem);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin: 1rem 0rem;
+  color: $white;
+
+  &.mission {
+    background: url("/banner_image_4.png");
+  }
+
+  &.toDate {
+    background: url("/banner_image2.jpg");
+  }
+
+  &.thisYear {
+    background: url("/banner_image3.jpg");
+  }
+}

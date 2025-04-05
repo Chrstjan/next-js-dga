@@ -3,6 +3,7 @@ import "./globals.scss";
 import Header from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { Logo } from "./components/Logo/Logo";
+import { Dropdown } from "./components/Dropdown/Dropdown";
 
 export const metadata: Metadata = {
   title: "Den Grønne Avis",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Header>
           <Logo />
+          <Dropdown canNavigate defaultText="vælg kategori" />
         </Header>
         {children}
         <Footer></Footer>

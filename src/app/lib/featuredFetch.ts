@@ -1,6 +1,8 @@
 export const getProducts = async (): Promise<Product[]> => {
   try {
-    const res = await fetch("http://localhost:4242/products");
+    const res = await fetch("http://localhost:4242/products", {
+      cache: "no-cache",
+    });
 
     if (!res.ok) {
       throw new Error(`Error fetching categories`);
@@ -29,7 +31,9 @@ export const getProducts = async (): Promise<Product[]> => {
 
 export const getCategories = async (): Promise<Category[]> => {
   try {
-    const res = await fetch("http://localhost:4242/categories");
+    const res = await fetch("http://localhost:4242/categories", {
+      cache: "no-cache",
+    });
 
     if (!res.ok) {
       throw new Error(`Error fetching categories`);
