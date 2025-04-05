@@ -1,0 +1,14 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.footerStyling {
+  background: $green;
+  position: static;
+  bottom: 0;
+
+  h3,
+  a {
+    color: $white;
+  }
+}
