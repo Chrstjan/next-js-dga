@@ -5,13 +5,14 @@ import s from "./LoginForm.module.scss";
 import { Icon } from "../Icon/Icon";
 import { Dispatch, SetStateAction, useContext } from "react";
 import { UserContext } from "@/app/context/UserContext";
+import { useRouter } from "next/navigation";
 
 export const LoginForm = ({
   setShowForm,
 }: {
   setShowForm: Dispatch<SetStateAction<string>>;
 }) => {
-  const { loginUser } = useContext(UserContext);
+  const router = useRouter();
 
   const {
     register,
@@ -30,7 +31,7 @@ export const LoginForm = ({
       password: password,
     };
 
-    const res = await fetch(`http://localhost:4242/login`, {
+    const res = await fetch(`/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,8 +45,9 @@ export const LoginForm = ({
 
     const userData = await res.json();
 
-    if (userData.message == "Success") {
-      loginUser(userData?.data);
+    if (userData.message == "Login successful") {
+      console.log("LOGIN!");
+      router.push("/account");
     }
   };
 
