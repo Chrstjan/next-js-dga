@@ -6,6 +6,7 @@ import { Logo } from "./components/Logo/Logo";
 import { Dropdown } from "./components/Dropdown/Dropdown";
 import { Wrapper } from "./components/Wrapper/Wrapper";
 import { Icon } from "./components/Icon/Icon";
+import { UserContextProvider } from "./context/UserContext";
 
 export const metadata: Metadata = {
   title: "Forside",
@@ -20,17 +21,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header>
-          <Logo />
-          <Dropdown canNavigate defaultText="vælg kategori" />
-          <Wrapper>
-            <Icon src="/icons/mail.svg" alt="mail logo" type="navLogo" />
-            <Icon src="/icons/info.svg" alt="info logo" type="navLogo" />
-            <Icon src="/icons/Account.svg" alt="account logo" type="navLogo" />
-          </Wrapper>
-        </Header>
-        {children}
-        <Footer></Footer>
+        <UserContextProvider>
+          <Header>
+            <Logo />
+            <Dropdown canNavigate defaultText="vælg kategori" />
+            <Wrapper>
+              <Icon src="/icons/mail.svg" alt="mail logo" type="navLogo" />
+              <Icon src="/icons/info.svg" alt="info logo" type="navLogo" />
+              <Icon
+                src="/icons/Account.svg"
+                alt="account logo"
+                type="navLogo"
+              />
+            </Wrapper>
+          </Header>
+          {children}
+          <Footer></Footer>
+        </UserContextProvider>
       </body>
     </html>
   );

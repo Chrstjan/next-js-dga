@@ -4,4 +4,15 @@
   &.navLogo {
     width: 10vw;
   }
+
+  &.formIcon {
+    width: 6vw;
+    position: absolute;
+    bottom: 7%;
+    right: 2%;
+
+    @media (min-width: 1200px) {
+      width: 2.5vw;
+    }
+  }
 }

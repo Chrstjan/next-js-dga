@@ -1,2 +1,96 @@
 @use "./mixins" as m;
 @use "./variables" as *;
+
+%inputContainer {
+  .inputContainer {
+    @include m.flexBox(column, center, center, 0.2rem);
+    position: relative;
+
+    label {
+      align-self: flex-start;
+    }
+
+    input {
+      padding: 0.4rem 2rem 0.4rem 0.5rem;
+      outline: 1px solid $light-green;
+      border: 2px solid $light-green;
+      background: $gray;
+      @media (min-width: 1200px) {
+        width: 40vw;
+        padding: 0.7rem 2rem 0.7rem 0.5rem;
+      }
+    }
+
+    textarea {
+      resize: none;
+      padding: 0.4rem 2.8rem 3rem 0.5rem;
+      outline: 0;
+      border: 2px solid $light-green;
+      background: $gray;
+
+      @media (min-width: 1200px) {
+        width: 39vw;
+        height: 8vh;
+      }
+    }
+  }
+}
+
+%formLink {
+  margin: 0;
+  margin-left: 4.5rem;
+  align-self: flex-start;
+  width: 200px;
+
+  .formLink {
+    color: $green;
+    text-decoration: underline;
+  }
+
+  @media (min-width: 1200px) {
+    margin-left: 20.5rem;
+    align-self: flex-start;
+    width: fit-content;
+  }
+}
+
+%buttonContainer {
+  .buttonContainer {
+    align-self: flex-end;
+    margin-right: 4.5rem;
+
+    @media (min-width: 1200px) {
+      margin-right: 20.5rem;
+    }
+    input {
+      background: $green;
+      border: 0;
+      color: $white;
+      padding: 0.5rem 2rem;
+
+      @media (min-width: 1200px) {
+        padding: 0.7rem 2.3rem;
+      }
+    }
+  }
+}
+
+%termsContainer {
+  .termsContainer {
+    @include m.flexBox(row, center, center, 0.5rem);
+    width: 100%;
+
+    @media (min-width: 1200px) {
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    label {
+      width: 200px;
+
+      @media (min-width: 1200px) {
+        width: fit-content;
+      }
+    }
+  }
+}
