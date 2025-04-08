@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 export async function POST(req: Request) {
   const { username, password } = await req.json();
 
-  // Make your login request here
   const res = await fetch("http://localhost:4242/login", {
     method: "POST",
     headers: {
@@ -21,7 +20,10 @@ export async function POST(req: Request) {
 
   if (userData?.message == "Success") {
     const accessToken = userData?.data?.access_token;
-    const response = NextResponse.json({ message: "Login successful" });
+    const response = NextResponse.json({
+      message: "Login successful",
+      ...userData?.data,
+    });
 
     // Set the cookie server-side
     response.cookies.set("access_token", accessToken, {

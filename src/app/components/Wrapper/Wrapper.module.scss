@@ -9,4 +9,9 @@
     width: 100%;
     border-top: 5px solid $green;
   }
+
+  &.btnWrapper {
+    margin: 1rem 1rem 0rem 1rem;
+    @include m.flexBox(column, center, center, 1rem);
+  }
 }

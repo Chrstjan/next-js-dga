@@ -1,0 +1,52 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.errorMessage {
+  text-align: center;
+}
+
+.cardStyling {
+  @include m.flexBox(column, center, center, 0.5rem);
+  background: $white;
+  border: 2px solid $light-green;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    img {
+      width: 12vw !important;
+      height: 100px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+  }
+
+  figcaption {
+    margin: 0.7rem;
+    .barStyling {
+      @include m.flexBox(row, space-between, center, 0.5rem);
+      background: $green;
+      color: $white;
+      padding: 0rem 2rem;
+
+      @media (min-width: 1200px) {
+        width: 70vw;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.footerContainer {
+  @include m.flexBox(row, flex-end, center, 0.6rem);
+  margin-right: 3rem;
+
+  .removeStyling {
+    color: $red;
+  }
+}
