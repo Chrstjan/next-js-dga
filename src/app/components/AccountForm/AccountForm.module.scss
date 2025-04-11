@@ -1,0 +1,55 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  @extend %inputContainer;
+  @extend %buttonContainer;
+
+  p {
+    margin: 0;
+  }
+
+  .checkboxContainer {
+    @include m.flexBox(column, center, center, 1rem);
+
+    .topContainer {
+      @include m.flexBox(column, center, center, 1.5rem);
+    }
+
+    @media (min-width: 1200px) {
+      justify-content: space-between;
+      gap: 6rem;
+    }
+
+    span {
+      @include m.flexBox(column, center, center, 0.5rem);
+      padding: 0rem 1rem;
+
+      @media (min-width: 1200px) {
+        gap: 1.5rem;
+      }
+
+      input {
+        outline: 1px solid $light-green;
+      }
+
+      input:checked {
+        outline: 1px solid $light-green;
+      }
+    }
+
+    .checkbox {
+      @include m.flexBox(column, center, center, 0.5rem);
+
+      @media (min-width: 1200px) {
+        flex-direction: row;
+
+        label {
+          width: 500px;
+        }
+      }
+    }
+  }
+}

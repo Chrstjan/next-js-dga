@@ -25,4 +25,16 @@
       width: 35vw;
     }
   }
+
+  &.createButton {
+    background: $light-green;
+    color: $white;
+    padding: 1rem;
+    border: 0;
+
+    @media (min-width: 1200px) {
+      margin-left: 2rem;
+      padding: 0.7rem 1.5rem;
+    }
+  }
 }

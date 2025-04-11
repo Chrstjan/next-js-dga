@@ -1,18 +1,22 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import s from "./Dropdown.module.scss";
 import { useRouter } from "next/navigation";
 
 interface DropdownInterface {
   canNavigate?: boolean;
+  creatingProduct?: boolean;
   defaultText: string;
   type?: string;
+  setProductCategory?: Dispatch<SetStateAction<string>>;
 }
 
 export const Dropdown = ({
   canNavigate,
+  creatingProduct,
   defaultText,
   type,
+  setProductCategory,
 }: DropdownInterface) => {
   const [categories, setCategories] = useState<Category[]>([]);
 
@@ -43,7 +47,11 @@ export const Dropdown = ({
     router.push(`/category/${e}`);
   };
 
-  const handleCreateProduct = () => {};
+  const handleCreateProduct = (e: string) => {
+    {
+      setProductCategory ? setProductCategory(e) : null;
+    }
+  };
 
   return (
     <>
@@ -51,7 +59,7 @@ export const Dropdown = ({
         onChange={(e) =>
           canNavigate
             ? handleCategoryNavigate(e?.target?.value)
-            : handleCreateProduct()
+            : handleCreateProduct(e?.target?.value)
         }
         className={`${s.dropdownStyling} ${type ? s[type] : ""}`}
       >
@@ -65,7 +73,10 @@ export const Dropdown = ({
         {categories?.length > 0 &&
           categories?.map((item: Category) => {
             return (
-              <option value={item?.slug} key={item?.id}>
+              <option
+                value={creatingProduct ? item?.id : item?.slug}
+                key={item?.id}
+              >
                 {item?.name}
               </option>
             );

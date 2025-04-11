@@ -3,7 +3,8 @@
 import { cookies } from "next/headers";
 
 export async function deleteProduct(productId: number) {
-  const token = cookies().get("access_token")?.value;
+  const allCookies = await cookies();
+  const token = allCookies.get("access_token")?.value;
 
   if (!token) {
     throw new Error("Unauthorized");
